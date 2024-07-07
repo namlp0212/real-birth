@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AnimatedText from './AnimatedText';
+import AnimatedHeader from './AnimatedHeader';
+import FireworksComponent from './FireworksComponent';
 
 const specialDates = [
   { date: '01-01', description: 'Tết Dương Lịch' },
@@ -80,10 +83,9 @@ function App() {
   };
 
   return (
-
     <div className="App">
       <header className="App-header">
-        <h2 className="text-4xl font-bold text-gray-800 mb-6">Nhập ngày sinh của bạn</h2>
+        <AnimatedHeader text="Nhập ngày sinh của bạn" />
         <input
           type="date"
           onChange={handleDateChange}
@@ -94,7 +96,7 @@ function App() {
         ) : (
           selectedDate && startDate && (
             <div className="text-lg text-gray-700">
-              <p>Thực tế bạn đến với thế giới ngày: <span className="font-semibold">{startDate}</span></p>
+              <AnimatedText text={`Thực tế bạn đến với thế giới ngày: ${startDate}`} />
             </div>
           )
         )}
@@ -104,7 +106,8 @@ function App() {
         ) : (
           specialDatesInRange.length > 0 && (
             <div className="mt-4">
-              <p className="text-lg text-gray-700">Bố mẹ bạn đã có một {specialDatesInRange[0].description} thật tuyệt!</p>
+              <AnimatedText text={`Bố mẹ bạn đã có một ${specialDatesInRange[0].description} thật tuyệt!`} />
+              <FireworksComponent />
             </div>
           )
         )}

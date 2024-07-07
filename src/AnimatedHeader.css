@@ -1,0 +1,19 @@
+.text-container-header {
+    display: inline-block;
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .text-container-header span {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+    font-size: 1em;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
